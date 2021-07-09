@@ -9,8 +9,8 @@ import java.util.List;
 
 public class ProdottoDAO {
 
-	public static final String GET_PRODOTTO_FROM_FORNITORE = "SELECT a.id as prod_id,a.codice_prodotto,a.nome as prod_name,a.descrizione,a.marca,a.codice_fornitore_fk,a.prezzo,"
-			+ "b.id as forn_id ,b.codice_fornitore,b.nome as forn_name,b.indirizzo,b.citta FROM negozio.prodotto a JOIN negozio.fornitore b ON a.codice_fornitore_fk= b.codice_fornitore"
+	public static final String GET_PRODOTTO_FROM_FORNITORE = "SELECT a.id as prod_id,a.codice_prodotto,a.nome as prod_name,a.descrizione,a.marca,a.codice_fornitore_fk,a.prezzo,\r\n"
+			+ "b.id as forn_id,b.codice_fornitore,b.nome as forn_name,b.indirizzo,b.citta FROM negozio.prodotto a INNER JOIN negozio.fornitore b ON a.codice_fornitore_fk= b.codice_fornitore\r\n"
 			+ "WHERE b.id = ?";
 	private CreatoreConnessione conn;
 
@@ -26,9 +26,11 @@ public class ProdottoDAO {
 
 			try (ResultSet res = psta.executeQuery();) {
 				while (res.next()) {
-					lista.add(new Prodotto(res.getLong("prod_id"), res.getString("codice_prodotto"), res.getString("prod_name"), res.getString("descrizione"), res.getString("marca"), 
-							new Fornitore(res.getLong("forn_id"), res.getString("codice_fornitore"), res.getString("forn_name"),
-							res.getString("indirizzo"), res.getString("citta")), res.getBigDecimal("prezzo")));
+					lista.add(new Prodotto(res.getLong("prod_id"), res.getString("codice_prodotto"),
+							res.getString("prod_name"), res.getString("descrizione"), res.getString("marca"),
+							new Fornitore(res.getLong("forn_id"), res.getString("codice_fornitore"),
+									res.getString("forn_name"), res.getString("indirizzo"), res.getString("citta")),
+							res.getBigDecimal("prezzo")));
 				}
 			}
 		}

@@ -14,7 +14,7 @@ public class FornitoreDAO {
 	public static final String GET_FORNITORE_BY_ID = "SELECT id,codice_fornitore,nome,indirizzo,citta FROM negozio.fornitore WHERE id = ?";
 	public static final String GET_ALL_FORNITORI = "SELECT id,codice_fornitore,nome,indirizzo,citta FROM negozio.fornitore";
 	public static final String SAVE_FORNITORE = "INSERT INTO negozio.fornitore (id, codice_fornitore, nome, indirizzo, citta) values (?,?,?,?,?); ";
-	public static final String UPDATE_FORNITORE = "UPDATE FROM negozio.fornitore SET codice_fornitore=?, nome=?, indirizzo=?, citta=? WHERE id=?";
+	public static final String UPDATE_FORNITORE = "UPDATE negozio.fornitore SET codice_fornitore=?, nome=?, indirizzo=?, citta=? WHERE id=?";
 	public static final String DELETE_FORNITORE = "DELETE FROM negozio.fornitore WHERE id=?";
 	public static final String GET_FORNITORI_BY_CITY = "SELECT id,codice_fornitore,nome,indirizzo,citta FROM negozio.fornitore WHERE citta = ?";
 
