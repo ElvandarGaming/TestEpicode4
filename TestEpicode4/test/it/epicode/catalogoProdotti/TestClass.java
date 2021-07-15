@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 class TestClass {
 
 	@BeforeAll
@@ -34,7 +35,7 @@ class TestClass {
 	@Test
 	void eliminazioneFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 		Fornitore marchi2 = new Fornitore(2, "X123", "Marchi", "Via verdi,3", "Verona");
 		try {
@@ -50,18 +51,18 @@ class TestClass {
 	@Test
 	void inserimentoFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
-		// Fornitore marchi = new Fornitore(1, "X123", "Marchi", "Via verdi,3",
-		// "Verona");
+		//Fornitore marchi = new Fornitore(1, "X123", "Marchi", "Via verdi,3", "Verona");
 		Fornitore marchi2 = new Fornitore(2, "X143", "Marchi", "Via verdi,3", "Verona");
 		//Fornitore rogi = new Fornitore(3, "y163", "Rogi", "Via lincoln,46", "Padova");
 		try {
 
 			t.save(marchi2);
-			//t.save(rogi);
-		} catch (SQLException e) {
+			//t.save(marchi);
+		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Non va una cippa");
 			fail("Non va una cippa");
 		}
 		System.out.println("Eliminato Marchi");
@@ -70,7 +71,7 @@ class TestClass {
 	@Test
 	void getFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 
 		try {
@@ -86,7 +87,7 @@ class TestClass {
 	@Test
 	void eliminazioneFornitoreById() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 
 		try {
@@ -101,7 +102,7 @@ class TestClass {
 	@Test
 	void getAllFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 
 		try {
@@ -117,7 +118,7 @@ class TestClass {
 	@Test
 	void updateFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 		//Fornitore marchi2 = new Fornitore(2, "X143", "Marchi", "Via verdi,3", "Verona");
 		Fornitore rogi = new Fornitore(3, "Y666", "Rogi", "Via lincoln,46", "Padova");
@@ -136,7 +137,7 @@ class TestClass {
 	@Test
 	void getCittaFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		FornitoreDAO t = new FornitoreDAO(portal);
 
 		try {
@@ -152,7 +153,7 @@ class TestClass {
 	@Test
 	void prodottiDaFornitore() {
 		CreatoreConnessione portal = new CreatoreConnessione("postgresql", "localhost", "5432", "esercitazione4",
-				"negozio", "postgres", "sax");
+				"negozio", "postgres", "123");
 		ProdottoDAO t = new ProdottoDAO(portal);
 		Fornitore rogi = new Fornitore(3, "Y666", "Rogi", "Via lincoln,46", "Padova");
 		try {
